@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA数字签名实验</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+    <h1>RSA数字签名实验</h1>
+    <div class="container">
+        <!-- 左侧：签名生成界面 -->
+        <div class="section" id="generate-section">
+            <h2>签名生成界面</h2>
+            <textarea id="server_port" readonly></textarea>
+<!--            <p id="server_port"></p>-->
+            <!-- 生成密钥对 -->
+            <div>
+                <h3>生成密钥对</h3>
+                <button onclick="generateKeys()">生成密钥对</button>
+                <p>公钥：</p>
+                <textarea id="public_key" readonly></textarea>
+                <p>私钥：</p>
+                <textarea id="private_key" readonly></textarea>
+            </div>
+
+            <!-- 输入消息并生成摘要 -->
+            <div>
+                <h3>生成消息摘要</h3>
+                <textarea id="message" placeholder="请输入消息"></textarea>
+                <button onclick="generateHash()">生成摘要</button>
+                <p>消息摘要：</p>
+                <textarea id="hash" readonly></textarea>
+            </div>
+
+            <!-- 生成签名 -->
+            <div>
+                <h3>生成签名</h3>
+                <button onclick="generateSignature()">生成签名</button>
+                <p>签名：</p>
+                <textarea id="signature" readonly></textarea>
+            </div>
+        </div>
+
+        <!-- 右侧：签名展示页面 -->
+        <div class="section" id="verify-section">
+            <h2>签名展示页面</h2>
+            <!-- 发送消息 -->
+            <div>
+                <h3>发送消息</h3>
+                <button onclick="sendMessage()">发送消息</button>
+            </div>
+
+            <!-- 接收的ip地址 -->
+            <div>
+                <h3>接收的ip地址</h3>
+                <textarea id="ip"></textarea>
+                <p>接收到的消息：</p>
+                <textarea id="received_message" readonly></textarea>
+                <p>接收到的签名：</p>
+                <textarea id="received_signature" readonly></textarea>
+                <p>接收到的公钥：</p>
+                <textarea id="received_public_key" readonly></textarea>
+            </div>
+
+            <!-- 验证签名 -->
+            <div>
+                <h3>验证签名</h3>
+                <button onclick="verifySignature()">验证签名</button>
+                <p id="verification_result"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
