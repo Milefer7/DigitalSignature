@@ -10,5 +10,4 @@ func main() {
 	router.RegisterRoutes(r)
 	//r.Run(":8081")
 	r.Run(":8080")
-
 }

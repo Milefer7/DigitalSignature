@@ -1,6 +1,7 @@
 package service
 
 import (
+	"crypto"
 	"crypto/rand"
 	"crypto/rsa"
 	"crypto/sha512"
@@ -76,7 +77,7 @@ func GenerateSignature(c *gin.Context) {
 	}
 
 	hash := sha512.Sum512([]byte(req.Message))
-	signature, err := rsa.SignPKCS1v15(rand.Reader, privateKey, 0, hash[:])
+	signature, err := rsa.SignPKCS1v15(rand.Reader, privateKey, crypto.SHA512, hash[:])
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Signature generation failed"})
 		return

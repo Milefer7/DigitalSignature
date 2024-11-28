@@ -95,7 +95,7 @@ func ReceiveMessage(c *gin.Context) {
 
 }
 
-// SSE-based ReceiveMessage
+// SSE SSE-based ReceiveMessage
 func SSE(c *gin.Context) {
 	// Set headers for SSE
 	c.Writer.Header().Set("Content-Type", "text/event-stream")
@@ -165,9 +165,11 @@ func CompareHash(c *gin.Context) {
 // 使用 RSA 公钥解密签名。
 // 验证签名的函数
 func decryptWithPublicKey(signature, publicKey string, hashedMessage []byte) (string, error, bool) {
-	//println("signature: ", signature)
-	//println("hashedMessage: ", hex.EncodeToString(hashedMessage))
-	//println("publicKey: ", publicKey)
+	println("signature: ", signature)
+	println("")
+	println("hashedMessage: ", hex.EncodeToString(hashedMessage))
+	println("")
+	println("publicKey: ", publicKey)
 
 	// 1. 解析 PEM 格式的公钥
 	block, _ := pem.Decode([]byte(publicKey))
@@ -217,6 +219,11 @@ func decryptWithPublicKey(signature, publicKey string, hashedMessage []byte) (st
 		fmt.Printf("err5: signature verification failed: %v\n", err)
 		return "", fmt.Errorf("signature invalid"), false
 	}
+
+	// 对比解密后的签名和消息摘要
+	//fmt.Println("公钥加密encryptedSignature: " + string(encryptedSignatureStr))
+	//fmt.Println("")
+	//fmt.Println("原签名signature: " + signature)
 
 	// 5. 返回成功消息
 	return hex.EncodeToString(hashedMessage), nil, true
