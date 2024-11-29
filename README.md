@@ -4,7 +4,7 @@
 
 ## 样式展示
 
-![img](https://my-note-drawing-bed-1322822796.cos.ap-shanghai.myqcloud.com/picture/202411290949865)
+![img](https://my-note-drawing-bed-1322822796.cos.ap-shanghai.myqcloud.com/picture/202411290953744)
 
 ## 如何使用
 
