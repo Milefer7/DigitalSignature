@@ -4,7 +4,7 @@
 
 ## 样式展示
 
-![image-20241129094638588](C:/Users/hello/AppData/Roaming/Typora/typora-user-images/image-20241129094638588.png)
+![img](https://my-note-drawing-bed-1322822796.cos.ap-shanghai.myqcloud.com/picture/202411290949865)
 
 ## 如何使用
 
